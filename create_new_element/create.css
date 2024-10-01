@@ -1,0 +1,19 @@
+div{
+    width: 200px;
+    height: 200px;
+    color:white;
+    border: 3px black solid;
+    border-radius:5px;
+    text-align: center;
+    background-color: blue;
+    padding: 20px;
+}
+
+.b{
+    background-color: red;
+    color: yellow;
+}
+.box{
+    background-color: black;
+    color: greenyellow;
+}
