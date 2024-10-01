@@ -1,0 +1,142 @@
+WINDOW OBJECT:The window object represents an open window in a browser.It is browser's object(not javaScript's) 
+              & is automatically created by browser.
+             -It is a global object with lots of properties and methods.
+DOM (Document Object Model): When a webpage is loaded,the browser creates a Document Object Model(DOM) of the
+              page.Every node in t6he tree is an object.
+
+              -DOM is a method to access HTML in javaScript and also hence we can dinamically make changes 
+                            
+                              window
+                                |
+                             Document(sub-object)
+                                |
+                               html
+                            /        \
+                           /          \
+                          /            \
+                        head           body____________
+                 _________|___             \           \
+                /   |    |    |        _____div_____  script
+            meta meta  title  link    /   |    |   |     
+                                    img   h1   p   div
+
+console.log()-used to print elements,html contents
+console.dir()-used to print special objects properties and functions like document object. 
+
+DOM Manipulation:
+~~~~~~~~~~~~~~~~~
+step1: Write ur script tag inside the body and if we print document.body it gives "null" value.
+
+step2:
+     ex:
+         let heading=document.getElementById("heading");
+         console.log(heading);//returns html piece of code line
+         console.dir(heading);//returns h1#heading
+         
+id-unique for individual elements.
+-represented by "#idName".
+      syntax: document.getElementById()
+      returns h1#heading
+      default returned value-null
+
+class-group up elements that should show similar features.
+-represented by ".classname".
+      syntax: document.getElementsByClassName() 
+      returns "HTMLCollections(no_of_elements)" :-> very similar to an array.
+      default returned value-empty HTMLCollections
+
+Tags-access html elemnts via its tag.
+      syntax: document.getElementsByTagName("p"); //for paragraphs
+      
+Query Selector:
+~~~~~~~~~~~~~~
+            document.querySelector("#idName / .className / tag")
+            //returns first element
+            document.querySelectorAll(".myclass / tag")
+
+DOMManipulation properties:(check or change value i.e get or set )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.tagName: returns tag for element nodes.
+2.innerText: returns the text content of the element and its children.
+3.innerHTML:returns the plain text or html contentss in the element.
+4.textContent: returns textual content even for hidden elements.(same as innerText but also shows hidden elements.)
+            <p style="visibility: hidden">xyz</p>
+            then,
+                  p.innerText()
+                  >''
+                  p.textContent()
+                  >xyz
+example:
+let firstel=document.querySelector("myid");
+console.dir(first);
+
+console:
+tag#id
+firstel.tagname
+>tag ex:h1,h2,p
+
+EX:
+HTML code:
+-----------
+<body>
+ <div>
+ <h4>Fruits</h4>
+ <ul>
+      <li>mango</li>
+      <li>litchi</li>
+      <li>orange</li>
+ </ul>
+ </div>
+</body>
+
+console:
+(get value):
+div.innerText
+>'Fruits\nmango \nlitchi\norange'
+div.innerHTML
+>'\n  <h4>Fruits</h4>\n <ul>\n  <li>mango</li>\n   <li>litchi</li>\n <li>orange</li>\n  </ul>\n '
+
+(set value):
+div.innerText="abcd";
+
+3 Types of nodes in DOM:
+~~~~~~~~~~~~~~~~~~~~~~~~
+-text nodes
+-comment
+-elements
+ ________________________________
+|properties:used for navigation  |
+ --------------------------------
+ __________________________________________________________________________
+|attributes:information about the elements-additinal information about tags |
+|let ele = document.querySelector("tagname");                                    |
+|                                                                           |
+|ele.getAttribute("attribute_name");                                                    |
+|ele.setAttribute("attribute_name","new_attribute_name");                                      |
+|(or)                                                                       |
+|let div = document.querSelector("div");                                    |
+|div.style.backgroundColor="green";                                         |
+|div.style.backgroundColor="purple";                                        |
+|div.style.visibility="hidden";                                             |
+|div.style.fontSize="26px";                                                 |
+|div.innerText="hello!";                                                    |
+-----------------------------------------------------------------------------
+ 
+homework: To learn about first child ,last child,etc in MDN.
+
+DOMManipulation:
+~~~~~~~~~~~~~~~
+Insert Elements:
+let el = document.createElement("div");
+node.append(el);  //adds at the end of node(inside)
+node.prepend(el); //adds at the start of node(inside)
+node.before(el);  //adds before the node(outside)
+node.after(el);   //adds after the node (outside)
+
+Delete Element:
+node.remove()     //removes the node.
+
+homework: appendChild()
+          removeChild()
+
+
